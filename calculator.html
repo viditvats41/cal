@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculater</title>
+    <link rel="stylesheet" href="cal.css">
+</head>
+<body>
+    <div class="table">
+    <table border = 1>
+    <tr><td align = right colspan= 3 id="ma" ><input type="textbox" id="main" width ="200px" value="0"></td>
+        <td align= center width="30px" id="cc">C</td></tr>
+    <tr><td align= center width = '30px' id="num1">1</td>
+        <td align= center width = '30px' id="num2">2</td>
+        <td align= center width = '30px' id="num3">3</td>
+        <td align="center" width = '30px' id="di">/</td></tr>
+    <tr><td align="center"  width = '30px' id="num4">4</td>
+        <td align="center" width = '30px' id="num5">5</td>
+        <td align="center" width = '30px' id="num6">6</td>
+        <td align="center" width = '30px' id="su">-</td></tr>
+    <tr><td align="center"  width = '30px' id="num7">7</td>
+        <td align="center" width = '30px' id="num8">8</td>
+        <td align="center" width = '30px' id="num9">9</td>
+        <td align="center" width = '30px' id="ad">+</td></tr>
+    <tr><td align="center"  width = '30px' id="do">.</td>
+        <td align="center" width = '30px' id="num0">0</td>
+        <td align="center" width = '30px' id="eq">=</td>
+        <td align="center" width = '30px' id="mu">*</td></tr>
+    </table>
+    </div>
+    <script>
+        function b(){
+            document.getElementById("main").value= 0;
+        }
+        function a(e){
+            let result=document.getElementById("main");
+            let obj=e.target;
+            if(result.value==0){
+                result.value=obj.textContent;
+            }
+            else{
+                result.value=result.value + obj.textContent;
+            }
+        }
+        function c(e){
+            let result=document.getElementById("main");
+            let obj=e.target;
+            result.value=result.value+obj.textContent;
+        }
+        let result=document.getElementById("main");
+        let num1=document.getElementById("num1");
+        num1.addEventListener("click",a);
+        let num2=document.getElementById("num2");
+        num2.addEventListener("click",a);
+        let num3=document.getElementById("num3");
+        num3.addEventListener("click",a);
+        let num4=document.getElementById("num4");
+        num4.addEventListener("click",a);
+        let num5=document.getElementById("num5");
+        num5.addEventListener("click",a);
+        let num6=document.getElementById("num6");
+        num6.addEventListener("click",a);
+        let num7=document.getElementById("num7");
+        num7.addEventListener("click",a);
+        let num8=document.getElementById("num8");
+        num8.addEventListener("click",a);
+        let num9=document.getElementById("num9");
+        num9.addEventListener("click",a);
+        let num0=document.getElementById("num0");
+        num0.addEventListener("click",a);
+
+        let div=document.getElementById("di");
+        div.addEventListener("click",c);
+        let sub=document.getElementById("su");
+        sub.addEventListener("click",c);
+        let mul=document.getElementById("mu");
+        mul.addEventListener("click",c);
+        let plus=document.getElementById("ad");
+        plus.addEventListener("click",c);
+        let dot=document.getElementById("do");
+        dot.addEventListener("click",c);
+
+        let clr=document.getElementById("cc");
+        /*
+        clr.addEventListener("click", 
+        e => document.getElementById("main").textContent=0);
+        */
+       clr.addEventListener("click",b);
+
+       let equal=document.getElementById("eq");
+       equal.addEventListener("click",
+       ()=> result.value = eval(result.value))
+    </script>
+</body>
+</html>
